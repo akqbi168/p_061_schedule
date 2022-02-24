@@ -1,0 +1,29 @@
+<table class="new_show_edit">
+  <tr>
+    <th>タイトル</th>
+    <td><%= f.text_field :title, class: "text_form" %></td>
+  </tr>
+
+  <tr>
+    <th>開始日</th>
+    <td><%= f.date_field :start_date, class: "text_form" %></td>
+  </tr>
+
+  <tr>
+    <th>終了日</th>
+    <td><%= f.date_field :end_date, class: "text_form" %></td>
+  </tr>
+
+  <tr>
+    <th>終日</th>
+    <td>
+      <%= f.check_box :all_day %>
+      <p>終日の場合はチェックを入れます</p>
+    </td>
+  </tr>
+
+  <tr>
+    <th>スケジュールメモ</th>
+    <td><%= f.text_area :memo, class: "text_form text_area" %></td>
+  </tr>
+</table>
