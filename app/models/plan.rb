@@ -1,7 +1,7 @@
 class Plan < ApplicationRecord
 
   with_options presence: true do
-    validates :title
+    validates :title, length: {maximum: 16}
     validates :start_date
     validates :end_date
   end

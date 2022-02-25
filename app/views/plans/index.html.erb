@@ -41,10 +41,7 @@
       <% @plans.each do |p| %>
         <tr>
           <td><%= p.id %></td>
-          <td>
-            <%= p.title[0, 16] %>
-            <% if p.title.length > 16 %>...<% end %>
-          </td>
+          <td><%= p.title %></td>
           <td><%= l(p.start_date) %></td>
           <td><%= l(p.end_date) %></td>
           <td><%= @all_day[p.all_day.to_s.to_sym] %></td>

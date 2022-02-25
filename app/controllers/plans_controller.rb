@@ -1,12 +1,7 @@
 class PlansController < ApplicationController
 
   def index
-    # if params[:sort].present?
-      @plans = Plan.order("#{params[:column]} #{params[:sort]}")
-    # else
-      # @plans = Plan.order(params[:column])
-    # end
-    # @plans = Plan.all
+    @plans = Plan.order("#{params[:column]} #{params[:sort]}")
     @all_day = { true: "○", false: "×" }
   end
 
