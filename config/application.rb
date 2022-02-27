@@ -18,5 +18,9 @@ module P061Schedule
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.i18n.default_locale = :ja
+
+    # タイムゾーンを日本に
+    config.time_zone = 'Tokyo'
   end
 end

@@ -1,0 +1,79 @@
+<div class="plans_wrapper">
+
+  <h3>スケジュール一覧</h3>
+
+  <% if notice.present? %>
+    <div class="notice">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>
+        <%= link_to(root_path(column: "title", sort: "desc"), class: "sort_btn_left") do %>▼<% end %>
+          タイトル
+        <%= link_to(root_path(column: "title", sort: "asc"), class: "sort_btn_right") do %>▲<% end %>
+      </th>
+      <th>
+        <%= link_to(root_path(column: "start_date", sort: "desc"), class: "sort_btn_left") do %>▼<% end %>
+          開始日
+        <%= link_to(root_path(column: "start_date", sort: "asc"), class: "sort_btn_right") do %>▲<% end %>
+      </th>
+      <th>
+        <%= link_to(root_path(column: "end_date", sort: "desc"), class: "sort_btn_left") do %>▼<% end %>
+          終了日
+        <%= link_to(root_path(column: "end_date", sort: "asc"), class: "sort_btn_right") do %>▲<% end %>
+      </th>
+      <th>終日</th>
+      <th>
+        <%= link_to(root_path(column: "updated_at", sort: "desc"), class: "sort_btn_left") do %>▼<% end %>
+          更新日時
+        <%= link_to(root_path(column: "updated_at", sort: "asc"), class: "sort_btn_right") do %>▲<% end %>
+      </th>
+      <th>確認</th>
+      <th>編集</th>
+      <th>削除</th>
+    </tr>
+
+    <% if @plans.any? %>
+      <% @plans.each do |p| %>
+        <tr>
+          <td><%= p.id %></td>
+          <td><%= p.title %></td>
+          <td><%= l(p.start_date) %></td>
+          <td><%= l(p.end_date) %></td>
+          <td><%= @all_day[p.all_day.to_s.to_sym] %></td>
+          <td><%= p.updated_at.to_s(:datetime_jp) %></td>
+          <td class="no_padding">
+            <%= link_to(plan_path(p.id), class: "index_btn") do %>
+              確認
+            <% end %>
+          </td>
+          <td class="no_padding">
+            <%= link_to(edit_plan_path(p.id), class: "index_btn") do %>
+              編集
+            <% end %>
+          </td>
+          <td class="no_padding">
+            <%= link_to(plan_path(p.id), method: :delete, data: { confirm: "本当に削除しますか？\n\nタイトル：#{p.title}\n期　　間：#{l(p.start_date)} 〜 #{l(p.end_date)}" }, class: "index_btn") do %>
+              削除
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="9">現在登録しているスケジュールはありません</td>
+      </tr>
+    <% end %>
+  </table>
+
+  <div class="clearfix">
+    <%= link_to(new_plan_path, class: "back_btn") do %>
+      スケジュール新規登録
+    <% end %>
+  </div>
+
+</div>

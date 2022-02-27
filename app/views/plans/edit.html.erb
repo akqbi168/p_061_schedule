@@ -1,0 +1,21 @@
+<div class="plans_wrapper">
+
+  <h3>スケジュール編集</h3>
+
+  <%= render 'shared/errors', locals: { plan: @plan } %>
+
+  <%= form_with(model: @plan, local: true) do |f| %>
+
+    <%= render 'shared/plans_form', f: f %>
+
+    <div class="clearfix">
+      <%= link_to(root_path, class: "back_btn") do %>
+        一覧に戻る
+      <% end %>
+
+      <%= f.submit 'スケジュールを更新する', class: "submit_btn" %>
+    </div>
+
+  <% end %>
+
+</div>

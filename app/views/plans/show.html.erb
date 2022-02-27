@@ -1,0 +1,48 @@
+<div class="plans_wrapper">
+
+  <h3>スケジュール確認</h3>
+
+  <%= render 'shared/errors', locals: { plan: @plan } %>
+
+  <table class="new_show_edit">
+    <tr>
+      <th>タイトル</th>
+      <td><%= @plan.title %></td>
+    </tr>
+
+    <tr>
+      <th>開始日</th>
+      <td><%= l(@plan.start_date) %></td>
+    </tr>
+
+    <tr>
+      <th>終了日</th>
+      <td><%= l(@plan.end_date) %></td>
+    </tr>
+
+    <tr>
+      <th>終日</th>
+      <td><%= @all_day[@plan.all_day.to_s.to_sym] %></td>
+    </tr>
+
+    <tr>
+      <th>スケジュールメモ</th>
+      <td><%= @plan.memo %></td>
+    </tr>
+  </table>
+
+  <div class="clearfix">
+    <%= link_to(root_path, class: "back_btn") do %>
+      一覧に戻る
+    <% end %>
+
+    <%= link_to(edit_plan_path(@plan.id), class: "back_btn") do %>
+      編集する
+    <% end %>
+
+    <%= link_to(plan_path(@plan.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "delete_btn") do %>
+      削除する
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,9 @@
+<% if @plan.errors.any? %>
+  <div class="alert">
+    <ul>
+      <% @plan.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

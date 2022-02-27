@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      plan: プラン
+    attributes:
+      plan:
+        title: タイトル
+        start_date: 開始日
+        end_date: 終了日
+  date:
+    formats:
+      default: "%Y年%m月%d日"
+  time:
+    formats:
+      default: "%Y年%m月%d日 %H時%M分%S秒"
